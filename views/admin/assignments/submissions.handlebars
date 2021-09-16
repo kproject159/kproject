@@ -1,0 +1,56 @@
+<div class="container">
+    <h1>Предадени материали:</h1>
+
+    <div class="row">
+
+        {{#each student}}
+        <div class="col-8">
+            <div class="card">
+                <div class="card-header">
+                    {{facultyNumber}} - {{names}}
+                </div>
+                <div class="card-body">
+
+                    {{#if submissions}}
+
+
+                    {{#each submissions}}
+
+                    {{#if hasUpload}}
+                    <h5 class="card-title"><a href="/uploads/{{file}}" download><i class="fas fa-file-download"></i>
+                            {{file}} </a></h5>
+                    {{/if}}
+
+                    {{#if text}}
+                    <textarea name="description" type="text" class="form-control mb-2" id="description" rows="2"
+                        readonly>{{text}}</textarea>
+                    {{/if}}
+
+                    {{/each}}
+
+                    {{else}}
+                    <p>Няма предадени материали.</p>
+                    {{/if}}
+                    <a href="/admin/submissions/grade/{{id}}" class="btn btn-primary mt-3">Оцени</a>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+
+
+
+
+    </div>
+    <br>
+    <a class="btn btn-primary mb-3" href="/admin/assignments/" role="button"> <i class="fas fa-backward"></i>
+        Назад</a>
+</div>
+{{!--
+{{#each student}}
+
+<h1>{{facultyNumber}} - {{names}}</h1>
+{{#each submissions}}
+<h1>{{text}}</h1>
+{{/each}}
+
+{{/each}} --}}

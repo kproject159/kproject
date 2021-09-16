@@ -1,0 +1,29 @@
+<div class="container">
+    <h1>Приключили предмети</h1><br>
+    <table class="table table-responsive-md table-striped table-bordered">
+        <thead>
+            <tr>
+                <th scope="col">Предмет</th>
+                <th scope="col">Преподавател</th>
+                <th scope="col">Семестър</th>
+                <th scope="col">Крайна дата</th>
+                <th scope="col" colspan="2">Действия</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            {{#each courses}}
+
+            <tr>
+                <th scope="row">{{title}}</th>
+                <td>{{lecturer}}</td>
+                <td>{{semester}}</td>
+                <td>{{endDate}}</td>
+                <td><a href="/dashboard/courses/{{_id}}" class="btn btn-info" title="Редактирай"><i
+                            class="fas fa-eye"></i> Детайли</a></td>
+            </tr>
+
+            {{/each}}
+        </tbody>
+    </table>
+</div>

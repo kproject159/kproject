@@ -1,0 +1,86 @@
+<div class="container">
+    </form>
+    <br>
+    <div class="row justify-content-center">
+        <div class="col-8">
+            <form action="/admin/students/edit/{{student.id}}?_method=PUT" method="post" enctype="multipart/form-data">
+                <h3>Редактиране на студент</h3><br>
+                <div class=" form-group">
+                    <label for="names" class="form-label">Имена:</label>
+                    <input name="names" type="text" class="form-control" id="names"
+                        placeholder="Въведете имената на студента" value="{{student.names}}" required>
+                </div>
+                <div class="form-group">
+                    <label for="facultyNumber">Факултетен номер:</label>
+                    <input name="facultyNumber" type="number" class="form-control" id="facultyNumber"
+                        placeholder="Фак.№ на студента" value="{{student.facultyNumber}}" required>
+                </div>
+                <div class="form-group">
+                    <label for="egn">ЕГН:</label>
+                    <input name="egn" type="number" class="form-control" id="egn" placeholder="Въведете ЕГН"
+                        value="{{student.egn}}" required>
+                </div>
+                <div class="password-reset pb-2">
+                    {{!-- <label for="specialty">Промяна на парола:</label>
+                    <div>
+                        <a class="btn btn-info" href="/admin/students/edit/{{_id}}с" data-toggle="modal"
+                            data-target="#resetPasswordModal" title="Изтрий">
+                            <i class="fas fa-undo-alt"></i>
+                            Възстанови паролата
+                        </a>
+                    </div> --}}
+                    <a href="/admin/students/pwdchange/{{student.id}}" class="btn btn-info"><i
+                            class="fas fa-unlock-alt"></i> Промяна на
+                        парола</a>
+                </div>
+                <div class="form-group">
+                    <label for="title">Семестър:</label>
+                    <select name="semester" id="semester" class="form-control">
+
+                        {{#select student.semester}}
+
+                        <option value="1">Първи</option>
+                        <option value="2">Втори</option>
+                        <option value="3">Трети</option>
+                        <option value="4">Четвърти</option>
+                        <option value="5">Пети</option>
+                        <option value="6">Шести</option>
+                        <option value="7">Седми</option>
+                        <option value="8">Осми</option>
+
+                        {{/select}}
+
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="specialty">Специалност:</label>
+                    <select name="specialty" id="specialty" class="form-control">
+
+                        {{#select student.specialty}}
+
+                        <option value="ПМИ">Приложна математика и информатика</option>
+                        <option value="ИСН">Информатика и софтуерни науки</option>
+                        <option value="ПФКМ">Приложна физика и компютърно моделиране</option>
+
+                        {{/select}}
+
+                    </select>
+                </div>
+
+                <div class="float-right">
+                    <a class="btn btn-danger" href="/admin/students/edit/{{id}}" data-toggle="modal"
+                        data-target="#studentDeleteModal" title="Изтрий">
+                        <i class="fas fa-trash"></i>
+                        Изтриване на студент
+                    </a>
+                </div>
+                <a class="btn btn-primary" href="/admin/students/" role="button"> <i class="fas fa-backward"></i>
+                    Назад</a>
+                <button type="submit" class="btn btn-primary">
+                    <i class="fas fa-save"></i>
+                    Запази промените</button><br>
+            </form>
+
+        </div>
+    </div>
+</div>

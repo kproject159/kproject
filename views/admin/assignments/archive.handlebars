@@ -1,0 +1,30 @@
+<div class="container">
+    <h1>Приключили проекти</h1><br>
+    <table class="table table-responsive-xl table-striped table-bordered">
+        <thead>
+            <tr>
+                <th scope="col">Предмет</th>
+                <th scope="col">Тема</th>
+                <th scope="col">Срок за предаване</th>
+                <th scope="col">Дата на защита</th>
+                <th scope="col" colspan="2">Операции</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            {{#each assignment}}
+
+            <tr>
+                <th scope="row">{{course}}</th>
+                <td>{{title}}</td>
+                <td>{{dueDate}}</td>
+                <td>{{defenseDate}}</td>
+                <td><a href="/admin/assignments/edit/{{_id}}" class="btn btn-info" title="Редактирай"><i
+                            class="far fa-edit"></i> Редактирай</a></td>
+            </tr>
+
+            {{/each}}
+
+        </tbody>
+    </table>
+</div>

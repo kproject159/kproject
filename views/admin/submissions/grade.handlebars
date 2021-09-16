@@ -1,0 +1,66 @@
+<link href="/css/slider.css" rel="stylesheet">
+<div class="container">
+    <h1>Предадени материали:</h1>
+
+    <div class="row">
+
+        <div class="card col-12">
+            <div class="card-header">
+                {{student.facultyNumber}} - {{student.names}}
+            </div>
+            <div class="card-body">
+                <h5 class="card-title mb-3">Предадени материали:</h5>
+
+                {{#if student.submissions}}
+                {{#each student.submissions}}
+
+                {{#if hasUpload}}
+                <h5 class="card-title"><a href="/uploads/{{file}}" download><i class="fas fa-file-download"></i>
+                        {{file}} </a></h5>
+                {{/if}}
+                {{#if text}}
+                <textarea name="description" type="text" class="form-control mb-2" id="description" rows="2"
+                    readonly>{{text}}</textarea>
+                {{/if}}
+
+
+                {{/each}}
+                {{else}}
+                <p>Студентът няма предадени материали по заданието.</p>
+                {{/if}}
+                <hr>
+                <form action="/admin/submissions/{{assignment.id}}/{{student.id}}" method="post">
+                    <h5 class="card-title mb-3">Въвеждане на рецензия и оценка:</h5>
+
+                    <div class="form-group"><label for="rangenumber">Точки:</label>
+                        <div>
+                            <input type="range" value="50" min="0" max="100" id="range"
+                                oninput="rangenumber.value=value" />
+                            <input name="score" type="number" id="rangenumber" min="0" max="100" value="50"
+                                oninput="range.value=value">
+
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="comment">Коментар:</label><br>
+                        <textarea name="comment" type="text" class="form-control" id="comment" rows="5" cols="69"
+                            placeholder=""></textarea>
+                    </div>
+
+                    <br>
+
+                    <button type="submit" class="btn btn-primary"> Запиши оценка</button>
+                </form>
+            </div>
+        </div>
+
+
+
+    </div>
+    <br>
+    <a class="btn btn-primary mb-3" href="/admin/submissions/{{assignment.id}}" role="button"> <i
+            class="fas fa-backward"></i>
+        Назад</a>
+</div>
+<script src="\js\slider.js"></script>

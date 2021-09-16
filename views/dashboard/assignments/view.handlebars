@@ -1,0 +1,123 @@
+<div class="container">
+    <h1>Преглед на проект</h1>
+    <br>
+    <div class="row">
+        <div class="col-md-12 col-xl-6 form-divide">
+            <br>
+            <div class="form-group row">
+                <label for="course" class="col-sm-2 col-form-label">Предмет</label>
+                <br>
+                <div class="col-sm-12">
+                    <input name="course" readonly type="text" class="form-control" id="course"
+                        value="{{assignment.course}}" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="title">Тема:</label>
+
+                <input name="title" type="text" class="form-control" id="title" value="{{assignment.title}}" required
+                    readonly>
+            </div>
+            <div class="row">
+                <div class="form-group col-sm-6">
+                    <label for="startDate">Крайна дата за предаване:</label><br>
+
+                    <input type="date" id="dueDate" name="dueDate" value="{{assignment.dueDate}}" min="2020-01-01"
+                        max="2030-12-31" required readonly>
+
+                </div>
+                <div class="form-group col-sm-6">
+                    <label for="endDate">Дата за защити:</label><br>
+
+                    <input type="date" id="defenseDate" name="defenseDate" value="{{assignment.defenseDate}}"
+                        min="2020-01-01" max="2030-12-31" required readonly>
+
+                </div>
+                <div class="form-group col-sm-6">
+                    <label for="endDate">Час на защитите:</label><br>
+
+                    <input type="time" id="defenseTime" name="defenseTime" value="{{assignment.defenseTime}}" readonly>
+
+                </div>
+            </div>
+
+            <div>
+                <div class="form-group">
+                    <label for="description">Условие:</label>
+                    <textarea name="description" type="text" class="form-control" id="description" rows="3"
+                        readonly>{{assignment.description}}</textarea>
+                </div>
+            </div>
+
+
+
+
+        </div>
+
+        <div class="col ml-8">
+
+            <div class="container">
+                <h3>Предадено съдържание:</h3>
+                <br>
+
+                {{#if submissions}}
+
+                {{#each submissions }}
+
+                {{#if hasUpload}}
+                <div class="row">
+                    <div class="col-10"><a href="/uploads/{{file}}" download>{{file}}</a></div>
+                    <form action="/dashboard/submissions/deleteImage/{{id}}" method="post">
+                        <div class="col-2">
+                            <button type="submit" class="btn btn-danger pr-1"><i
+                                    class="fas fa-minus-circle fa-md fa-fw mr-2"></i></button>
+                        </div>
+                    </form>
+                </div>
+                {{/if}}
+
+                {{#if text}}
+                <div class="row pt-2">
+                    <div class="col-10">
+                        <textarea name="description" type="text" class="form-control" id="description" rows="2"
+                            readonly>{{text}}</textarea>
+                    </div>
+
+
+                    <form action="/dashboard/submissions/deleteText/{{id}}" method="post">
+                        <div class="col-2">
+                            <button type="submit" class="btn btn-danger pr-1"><i
+                                    class="fas fa-minus-circle fa-md fa-fw mr-2"></i></button>
+                        </div>
+                    </form>
+
+                </div>
+                {{/if}}
+
+
+                <br>
+                {{/each}}
+                {{else}}
+                <p>Нямате предадено съдържание до момента.</p>
+
+                {{/if}}
+
+                <br>
+                <a href="/dashboard/assignments/{{assignment.id}}/submit" class="btn btn-primary" title="submission"><i
+                        class="fas fa-file-import"></i>
+                    Към формата за качванe </a>
+            </div>
+
+
+
+
+
+        </div>
+
+    </div>
+    <br>
+    <a class="btn btn-primary" href="/dashboard/assignments/" role="button"> <i class="fas fa-backward"></i>
+        Назад</a>
+    <br>
+
+</div>

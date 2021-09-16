@@ -1,0 +1,31 @@
+<div class="container">
+    <h1>Предаване на задание: {{assignment.title}} </h1>
+    <br>
+    <div class="row">
+        <form action="/dashboard/assignments/{{assignment.id}}/submit" method="post" enctype="multipart/form-data">
+
+            <div class="form-group">
+                <label for="textInput">Текст:</label><br>
+                <textarea name="textInput" type="text" class="form-control" id="textInput" rows="5" cols="69"
+                    placeholder="Може да въведете текст или коментар спрямо заданието."></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="file">Качване на файл:</label>
+                <input type="file" name="file" class="form-control pt-1 mb-2">
+                <p>Може да качвате по един файл или архив с повече файлове</p>
+            </div>
+
+
+
+            <a class="btn btn-primary" href="/dashboard/assignments/" role="button"> <i class="fas fa-backward"></i>
+                Назад</a>
+            <button type="submit" class="btn btn-primary float-right"><i class="fas fa-paper-plane"></i>
+                Предаване</button>
+            <br>
+        </form>
+
+    </div>
+
+
+</div>

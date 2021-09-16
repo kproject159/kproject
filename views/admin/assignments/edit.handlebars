@@ -1,0 +1,120 @@
+<div class="container">
+    <h1>Редактиране на проект</h1>
+    <br>
+    <div class="row">
+        <div class="col-md-12 col-xl-6 form-divide">
+            <form action="/admin/assignments/edit/{{assignment.id}}?_method=PUT" method="post"
+                enctype="multipart/form-data">
+                <br>
+                <div class="form-group row">
+                    <label for="course" class="col-sm-2 col-form-label">Предмет</label>
+                    <br>
+                    <div class="col-sm-12">
+                        <input name="course" readonly type="text" class="form-control" id="course"
+                            value="{{assignment.course}}" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="title">Тема:</label>
+
+                    <input name="title" type="text" class="form-control" id="title" value="{{assignment.title}}"
+                        required>
+                </div>
+                <div class="row">
+                    <div class="form-group col-sm-6">
+                        <label for="startDate">Крайна дата за предаване:</label><br>
+
+                        <input type="date" id="dueDate" name="dueDate" value="{{assignment.dueDate}}" min="2020-01-01"
+                            max="2030-12-31" required>
+
+                    </div>
+                    <div class="form-group col-sm-6">
+                        <label for="endDate">Дата за защити:</label><br>
+
+                        <input type="date" id="defenseDate" name="defenseDate" value="{{assignment.defenseDate}}"
+                            min="2020-01-01" max="2030-12-31" required>
+
+                    </div>
+                    <div class="form-group col-sm-6">
+                        <label for="endDate">Час на защитите:</label><br>
+
+                        <input type="time" id="defenseTime" name="defenseTime" value="{{assignment.defenseTime}}"
+                            required>
+
+                    </div>
+                </div>
+
+                <div>
+                    <div class="form-group">
+                        <label for="description">Условие:</label>
+                        <textarea name="description" type="text" class="form-control" id="description"
+                            rows="3">{{assignment.description}}</textarea>
+                    </div>
+                </div>
+
+
+
+
+        </div>
+
+        <div class="col-4 col-m-12 ml-4">
+            <h3>Студенти:</h3>
+            <div class="row overflow-auto" id="student-select">
+                {{#each checkedStudents}}
+
+                <div class="form-check col-12">
+                    <input name="studentsList" class="form-check-input" type="checkbox" value="{{id}}" checked>
+                    <label class="form-check-label">
+                        {{facultyNumber}} -
+                        {{names}}
+                    </label>
+                </div>
+
+                {{/each}}
+                {{#each uncheckedStudents}}
+
+                <div class="form-check col-12">
+                    <input name="studentsList" class="form-check-input" type="checkbox" value="{{id}}">
+                    <label class="form-check-label">
+                        {{facultyNumber}} -
+                        {{names}}
+                    </label>
+                </div>
+
+                {{/each}}
+
+            </div>
+
+
+
+
+        </div>
+
+
+
+    </div>
+
+    {{!-- <div class="row">
+        <div class="col-2"><a class="btn btn-primary" href="/admin/assignments/" role="button"> <i
+                    class="fas fa-backward"></i>
+                Назад</a></div>
+
+        <div class="col-2">
+            <button type="submit" class="btn btn-primary">
+                <i class="far fa-save"></i> Запази</button><br>
+        </div>
+    </div> --}}
+    <a class="btn btn-primary mt-5" href="/admin/assignments/" role="button"> <i class="fas fa-backward"></i>
+        Назад</a>
+    <button type="submit" class="btn btn-primary ml-2 mt-5"><i class="fas fa-save"></i> Запази</button>
+    <div class="float-right">
+
+
+        <a class="dropdown-item bg-danger rounded text-white mt-5" href="#" data-toggle="modal"
+            data-target="#assignmentDeleteModal">
+            <i class="fas fa-minus-circle fa-md fa-fw mr-2"></i>
+            Изтриване на проекта
+        </a>
+    </div>
+
+</div>

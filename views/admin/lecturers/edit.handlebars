@@ -1,0 +1,34 @@
+<div class="container">
+    <h1>Редактиране на Преподавател</h1>
+    <div class="row">
+        <div class="col-md-8">
+            <form action="/admin/lecturers/edit/{{lecturer.id}}?_method=PUT" method="post"
+                enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="name" class="form-label">Имена:</label>
+                    <input name="name" type="text" class="form-control" id="name"
+                        placeholder="Въведете името на преподавателя" value="{{lecturer.name}}" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email адрес:</label>
+                    <input name="email" type="email" class="form-control" id="email" aria-describedby="emailHelp"
+                        placeholder="primer@tu-sofia.bg" value="{{lecturer.email}}" required>
+                </div>
+                <div>
+                    <button type="submit" class="btn btn-primary mr-2"><i class="fas fa-save"></i> Запази</button>
+                    <a href="/admin/lecturers/pwdchange/{{lecturer.id}}" class="btn btn-info"><i
+                            class="fas fa-unlock-alt"></i> Промяна на
+                        парола</a>
+                    <div class="float-right"><a class="btn btn-danger" href="#" data-toggle="modal"
+                            data-target="#lecturerDeleteModal">
+                            <i class="fas fa-minus-circle fa-md fa-fw mr-2"></i>
+                            Изтриване на преподавател
+                        </a></div>
+                </div>
+            </form>
+            <br>
+            <a class="btn btn-primary" href="/admin/lecturers/" role="button"> <i class="fas fa-backward"></i>
+                Назад</a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,116 @@
+<div class="container">
+    <h1>Редактиране на курс</h1>
+
+    <form action="/admin/courses/edit/{{course.id}}?_method=PUT" method="post">
+
+        <div class="form-group">
+            <label for="title">Предмет:</label>
+
+            <input name="title" type="text" class="form-control" id="title" value="{{course.title}}"
+                placeholder="Въведете името на предмета:" required>
+        </div>
+        <div>
+            <div class="form-group">
+                <label for="title">Преподавател:</label>
+                <select name="lecturer" id="lecturer" class="form-control" {{#if lecturer}}readonly{{/if}}>
+
+                    {{#each lecturers}}
+                    <option value="{{name}}">{{name}}</option>
+                    {{/each}}
+
+                    {{!-- Да има само 1 избор на преподавател в случай, че логнатия потребител не е администратор.--}}
+                    {{#if lecturer}}
+                    <option value="{{lecturer.name}}" selected>{{lecturer.name}}</option>
+                    {{/if}}
+
+
+                </select>
+            </div>
+
+
+
+        </div>
+        <div>
+
+
+
+            <div>
+                <div>
+                    <div class="form-group">
+                        <label for="title">Семестър:</label>
+                        <select name="semester" id="semester" class="form-control">
+
+                            {{#select course.semester}}
+
+                            <option value="1">Първи</option>
+                            <option value="2">Втори</option>
+                            <option value="3">Трети</option>
+                            <option value="4">Четвърти</option>
+                            <option value="5">Пети</option>
+                            <option value="6">Шести</option>
+                            <option value="7">Седми</option>
+                            <option value="8">Осми</option>
+
+                            {{/select}}
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="specialty">Специалност:</label>
+                        <select name="specialty" id="specialty" class="form-control">
+                            {{#select course.specialty}}
+                            <option value="ПМИ">Приложна математика и информатика</option>
+                            <option value="ИСН">Информатика и софтуерни науки</option>
+                            <option value="ПФКМ">Приложна физика и компютърно моделиране</option>
+                            {{/select}}
+                        </select>
+                    </div>
+
+
+                </div>
+            </div>
+            <form>
+                <div class="form-row align-items-center">
+                    <div class="col-sm-3 my-1">
+                        <div class="form-group">
+                            <label for="startDate">Начало на курса:</label><br>
+
+                            <input type="date" id="startDate" name="startDate" value="{{course.startDate}}"
+                                min="2020-01-01" max="2030-12-31" required>
+
+                        </div>
+                    </div>
+                    <div class="col-sm-1"> </div>
+                    <div class="col-sm-3 my-1">
+                        <div class="form-group">
+                            <label for="endDate">Край на курса:</label><br>
+                            <input type="date" id="endDate" name="endDate" value="{{course.endDate}}" min="2020-01-01"
+                                max="2030-12-31" required>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="description">Описание:</label>
+                    <textarea name="description" type="text" class="form-control" id="description"
+                        placeholder="Кратко описание за курса" rows="3">{{course.description}}</textarea>
+                </div>
+
+                <a class="btn btn-primary" href="/admin/courses/" role="button"> <i class="fas fa-backward"></i>
+                    Назад</a>
+                <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Запази</button>
+
+
+            </form>
+            <div class="float-right">
+                {{!-- <form action="/admin/courses/{{course.id}}?_method=DELETE" method="post">
+                    <button type="submit" class="btn btn-danger">Изтриване на курс</button>
+                </form> --}}
+
+                <a class="dropdown-item bg-danger rounded text-white" href="#" data-toggle="modal"
+                    data-target="#courseDeleteModal">
+                    <i class="fas fa-minus-circle fa-md fa-fw mr-2"></i>
+                    Изтриване на предмет
+                </a>
+            </div>
+        </div>
+</div>

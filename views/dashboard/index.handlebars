@@ -1,0 +1,30 @@
+<div class="container">
+
+    <h1>Последни новини</h1>
+
+    <div class="row justify-content-center">
+        {{#each posts}}
+        <div class="col-10 col-xl-6 mb-3">
+            <div class="card" style="">
+                <img src="/uploads/{{file}}" class="card-img-top img-fluid">
+                <div class="card-body">
+                    <h5 class="card-title float-left">{{title}}</h5>
+                    <p class="float-right">{{generateTime date 'MMMM Do YYYY'}}</p>
+                    <br>
+                    <hr>
+                    <p class="card-text">{{description}}</p>
+                    <a href="/dashboard/post/{{_id}}" class="btn btn-primary">Прочети повече</a>
+                </div>
+            </div>
+        </div>
+
+        {{/each}}
+    </div>
+
+
+
+    <!-- Content Row -->
+    <div class="row">
+
+    </div>
+</div>

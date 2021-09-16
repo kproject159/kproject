@@ -1,0 +1,17 @@
+<div class="container">
+    <div class="col-12">
+        <div class="card" style="">
+            <img src="/uploads/{{post.file}}" class="card-img-top img-fluid">
+            <div class="card-body">
+                <h5 class="card-title float-left">{{post.title}}</h5>
+                <p class="float-right">{{generateTime post.date 'MMMM Do YYYY'}}</p>
+                <br>
+                <hr>
+                <p class="card-text">{{post.body}}</p>
+                <a class="btn btn-primary" href="/admin/posts" role="button"> <i class="fas fa-backward"></i>
+                    Назад</a>
+            </div>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,28 @@
+<div class="container">
+    <h1>Оценки</h1><br>
+    <table class="table table-responsive-lg table-striped table-bordered">
+        <thead>
+            <tr>
+                <th scope="col">Предмет</th>
+                <th scope="col">Проект</th>
+                <th scope="col">Точки</th>
+                <th scope="col" colspan="2">Операции</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            {{#each grades}}
+
+            <tr>
+                <th scope="row">{{course}}</th>
+                <td>{{assignment.title}}</td>
+                <td><span class="text-primary">{{grade}}</span><sup>/100</sup></td>
+                <td><a href="/dashboard/assignments/{{assignment.id}}/grade" class="btn btn-info" title="Редактирай"><i
+                            class="far fa-eye"></i> Повече информация</a></td>
+            </tr>
+
+            {{/each}}
+
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,34 @@
+<div class="container">
+    <h1>Приключили курсове</h1><br>
+    <table class="table table-responsive-xl table-striped table-bordered">
+        <thead>
+            <tr>
+                <th scope="col">Предмет</th>
+                <th scope="col">Преподавател</th>
+                <th scope="col">Семестър</th>
+                <th scope="col">Семестър</th>
+                <th scope="col">Начална дата</th>
+                <th scope="col">Крайна дата</th>
+                <th scope="col" colspan="2">Действия</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            {{#each courses}}
+
+            <tr>
+                <th scope="row">{{title}}</th>
+                <td>{{lecturer}}</td>
+                <td>{{specialty}}</td>
+                <td>{{semester}}</td>
+                <td>{{startDate}}</td>
+                <td>{{endDate}}</td>
+                <td><a href="/admin/courses/edit/{{_id}}" class="btn btn-info" title="Редактирай"><i
+                            class="far fa-edit"></i> Редактирай</a></td>
+            </tr>
+
+            {{/each}}
+
+        </tbody>
+    </table>
+</div>

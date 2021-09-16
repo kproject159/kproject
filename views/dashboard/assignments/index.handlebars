@@ -1,0 +1,43 @@
+<div class="row justify-content-center">
+    <div class="col-12 col-xl-11">
+        <h1 class="pl-3">Текущи проекти</h1><br>
+        <table class="table table-responsive-xl table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th scope="col">Предмет</th>
+                    <th scope="col">Тема</th>
+                    <th scope="col">Срок за предаване</th>
+                    <th scope="col">Дата на защита</th>
+                    <th scope="col">Час на защита</th>
+                    <th scope="col" colspan="3">Операции</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each assignments}}
+
+                <tr>
+                    <th scope="row">{{course}}</th>
+                    <td>{{title}}</td>
+                    <td>{{dueDate}}</td>
+                    <td>{{defenseDate}}</td>
+                    <td>{{defenseTime}}</td>
+                    <td><a href="/dashboard/assignments/{{_id}}" class="btn btn-info" title="Details"><i
+                                class="fas fa-eye"></i> Детайли</a></td>
+                    <td><a href="/dashboard/assignments/{{_id}}/submit" class="btn btn-primary"
+                            title="Към формата за качване и предаване"><i class="fas fa-paper-plane"></i> Предаване</a>
+                    </td>
+                    {{#if meetingCreated}}
+                    <td><a href="/dashboard/assignments/join/{{_id}}" class="btn btn-primary" title="Редактирай"><i
+                                class="fas fa-photo-video"></i> Видео връзка</a></td>
+                    {{else}}
+                    <td><a href="#" class="btn btn-primary disabled" title="Редактирай"><i class="fas fa-photo-video"
+                                disabled></i> Видео връзка</a></td>
+                    {{/if}}
+                </tr>
+
+                {{/each}}
+
+            </tbody>
+        </table>
+    </div>
+</div>

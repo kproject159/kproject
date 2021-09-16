@@ -1,0 +1,48 @@
+<div class="container">
+    </form>
+    <br>
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-8">
+            <form action="/admin/students/edit/{{student.id}}?_method=PUT" method="post" enctype="multipart/form-data">
+                <h3>Информация за профила</h3><br>
+                <div class=" form-group">
+                    <label for="names" class="form-label">Имена:</label>
+                    <input name="names" type="text" class="form-control" id="names" value="{{user.names}}" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="facultyNumber">Факултетен номер:</label>
+                    <input name="facultyNumber" type="number" class="form-control" id="facultyNumber"
+                        placeholder="Фак.№ на студента" value="{{user.facultyNumber}}" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="egn">ЕГН:</label>
+                    <input name="egn" type="number" class="form-control" id="egn" placeholder="Въведете ЕГН"
+                        value="{{user.egn}}" readonly>
+                </div>
+                <div class="password-reset pb-3 pt-2">
+
+                    <a href="/dashboard/pwdchange/{{user.id}}" class="btn btn-info"><i class="fas fa-unlock-alt"></i>
+                        Промяна на
+                        парола</a>
+                </div>
+                <div class="form-group">
+                    <label for="title">Семестър:</label>
+                    <select name="semester" id="semester" class="form-control" readonly>
+
+                        <option value="0">{{user.semester}}</option>
+
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="specialty">Специалност:</label>
+                    <select name="specialty" id="specialty" class="form-control" readonly>
+                        <option value="0">{{user.specialty}}</option>
+                    </select>
+                </div>
+                <a class="btn btn-primary mt-3" href="/dashboard" role="button"> <i class="fas fa-backward"></i>
+                    Назад</a>
+            </form>
+
+        </div>
+    </div>
+</div>

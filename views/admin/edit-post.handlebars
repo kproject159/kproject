@@ -1,0 +1,61 @@
+<div class="container">
+    <h1>Добавяне на нова статия</h1>
+    <br>
+
+    {{#each errors}}
+    <div class="alert alert-danger">
+        {{message}}
+    </div>
+    {{/each}}
+
+
+    <form action="/admin/post/{{post.id}}/edit?_method=PUT" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="title">Заглавие:</label>
+            <input name="title" type="text" class="form-control" id="title" value="{{post.title}}" required>
+        </div>
+
+        <div class="form-group">
+            <label for="file">Обложка</label>
+            <input type="file" name="file" class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label for="status">Статус:</label>
+            <select name="status" id="status" class="form-control">
+
+                {{#select post.status}}
+
+                <option value="public">Публична</option>
+                <option value="private">Скрита</option>
+                <option value="draft">Чернова</option>
+
+                {{/select}}
+
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="description">Кратко описание</label>
+            <textarea required name="description" cols="30" rows="2" class="form-control" id="description"
+                placeholder="Въведете кратко описание, което ще се показва преди статията">{{post.description}}</textarea>
+        </div>
+        <div class="form-group">
+            <label for="body">Съдържание</label>
+            <textarea required name="body" cols="30" rows="10" class="form-control" id="body"
+                placeholder="Въведете съдържание на статията">{{post.body}}</textarea>
+        </div>
+        <a class="btn btn-primary" href="/admin/posts" role="button"> <i class="fas fa-backward"></i>
+            Назад</a>
+        <button type="submit" class="btn btn-primary"><i class="far fa-save"></i> Запази промените</button>
+        <div class="float-right">
+            <a class="btn btn-danger" href="/admin/post/{{id}}" data-toggle="modal" data-target="#postDeleteModal"
+                title="Изтрий">
+                <i class="fas fa-trash"></i>
+                Изтриване на статия
+            </a>
+        </div>
+
+
+
+    </form>
+</div>

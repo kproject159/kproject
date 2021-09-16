@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>SB Admin 2 - Login</title>
+    <link href="/css/font-awesome/all.min.css" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+    <link href="/css/sb-admin-2.min.css" rel="stylesheet">
+
+</head>
+
+<body class="background">
+
+    <div class="container mb-5">
+
+        <!-- Outer Row -->
+        <div class="row justify-content-center">
+
+            <div class="col-xl-10 col-lg-12 col-md-9">
+
+                <div class="card o-hidden border-0 shadow-lg my-5">
+                    <div class="card-body p-0">
+                        <!-- Nested Row within Card Body -->
+                        <div class="row">
+                            <div class="col-lg-6 d-none d-lg-block m-0 p-0">
+                                <img src="https://images.unsplash.com/photo-1605364850032-e25ae0835552?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
+                                    alt="" class="img-fluid">
+                            </div>
+                            <div class="col-lg-6 ml-0 pl-0">
+                                {{> home/form-msgs}}
+                                <div class="p-5 mt-5">
+                                    <div class="text-center">
+                                        <h1>Вход за Преподаватели</h1>
+                                    </div>
+                                    <div class="">
+                                        <hr>
+                                        <form class="user" action="/login-l" method="post"
+                                            enctype="multipart/form-data">
+                                            <div class="form-group">
+                                                <input name="email" type="email" class="form-control form-control-user"
+                                                    id="email" aria-describedby="emailHelp"
+                                                    placeholder="Въведете емейл адрес" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <input name="password" type="password"
+                                                    class="form-control form-control-user" id="password"
+                                                    placeholder="Парола" required>
+                                            </div>
+                                            <button type="submit" class="btn btn-primary btn-user btn-block"><i
+                                                    class="fas fa-sign-in-alt"></i>
+                                                Вход</button>
+                                        </form>
+                                        <hr>
+                                    </div>
+
+                                    <div class="mt-3">
+                                        <form class="user" id="lecturerlogin">
+                                            <a href="/login" class="btn btn-warning btn-user btn-block mt-5"><i
+                                                    class="fas fa-user-friends"></i>
+                                                Вход за студенти
+                                            </a>
+                                        </form>
+                                    </div>
+
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="/js/jquery/jquery.min.js"></script>
+    <script src="/js//bootstrap/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="/js/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="/js/sb-admin-2.min.js"></script>
+</body>
+
+
+</html>

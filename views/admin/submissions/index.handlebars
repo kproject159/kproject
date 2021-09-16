@@ -1,0 +1,111 @@
+<div class="container">
+    <h2>Предадени материали:</h2>
+    <hr>
+    <div class="row">
+
+
+        <div class="col-12">
+            <br>
+            {{#if ungradedStudent}}
+            <h5>Непроверени работи:</h5>
+            {{else}}
+            <p>Всички студенти са проверени и оценени.</p>
+            {{/if}}
+        </div>
+
+        {{#each ungradedStudent}}
+        <div class="col-12 col-xl-6 mb-3">
+            <div class="card">
+                <div class="card-header">
+                    {{facultyNumber}} - {{names}}
+                </div>
+                <div class="card-body">
+
+                    {{#if submissions}}
+
+
+                    {{#each submissions}}
+
+                    {{#if hasUpload}}
+                    <h5 class="card-title"><a href="/uploads/{{file}}" download><i class="fas fa-file-download"></i>
+                            {{file}} </a></h5>
+                    {{/if}}
+
+                    {{#if text}}
+                    <textarea name="description" type="text" class="form-control mb-2" id="description" rows="2"
+                        readonly>{{text}}</textarea>
+                    {{/if}}
+
+                    {{/each}}
+
+                    {{else}}
+                    <p>Няма предадени материали.</p>
+                    {{/if}}
+                    <a href="/admin/submissions/{{../assignment.id}}/{{id}}" class="btn btn-primary mt-3">Оцени</a>
+                </div>
+            </div>
+        </div>
+
+        {{/each}}
+
+    </div>
+
+    <hr>
+
+    <div class="row">
+        <div class="col-12">
+            {{#if gradedStudent}}
+            <h5>Проверени работи:</h5>
+            {{/if}}
+        </div>
+        {{#each gradedStudent}}
+
+        <div class="col-12 col-xl-6 mb-3">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    {{facultyNumber}} - {{names}}
+                </div>
+                <div class="card-body">
+                    {{#if submissions}}
+
+
+                    {{#each submissions}}
+
+                    {{#if hasUpload}}
+                    <h5 class="card-title"><a href="/uploads/{{file}}" download><i class="fas fa-file-download"></i>
+                            {{file}} </a></h5>
+                    {{/if}}
+
+                    {{#if text}}
+                    <textarea name="description" type="text" class="form-control mb-2" id="description" rows="2"
+                        readonly>{{text}}</textarea>
+                    {{/if}}
+
+                    {{/each}}
+
+                    {{else}}
+                    <p>Няма предадени материали.</p>
+                    {{/if}}
+                    <a href="/admin/submissions/{{../assignment.id}}/{{id}}/edit" class="btn btn-primary mt-3">Промени
+                        оценка</a>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+
+
+
+    </div>
+    <br>
+    <a class="btn btn-primary mb-3" href="/admin/assignments/" role="button"> <i class="fas fa-backward"></i>
+        Назад</a>
+</div>
+{{!--
+{{#each student}}
+
+<h1>{{facultyNumber}} - {{names}}</h1>
+{{#each submissions}}
+<h1>{{text}}</h1>
+{{/each}}
+
+{{/each}} --}}

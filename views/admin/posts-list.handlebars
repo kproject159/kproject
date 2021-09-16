@@ -1,0 +1,37 @@
+<div class="container">
+    <h1>Статии</h1><br>
+
+    <table class="table table-responsive-md table-striped table-bordered">
+        <thead>
+            <tr>
+                <th scope="col">Заглавие</th>
+                <th scope="col">Обложка</th>
+                <th scope="col">Статус</th>
+                <th scope="col">Дата</th>
+                <th scope="col" colspan="2">Операции</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            {{#each posts}}
+
+            <tr>
+                <th scope="row">{{title}}</th>
+                <td><img src="/uploads/{{file}}" alt="" height="50"></td>
+                <td>{{status}}</td>
+                <td>{{generateTime date 'MMMM Do YYYY'}}</td>
+                <td><a href="/admin/post/{{id}}/edit/" class="btn btn-info" title="Редактирай"><i
+                            class="far fa-edit"></i>
+                        Редактиране</a></td>
+                <td><a href="/admin/post/{{id}}" class="btn btn-primary" title="Редактирай"><i class="far fa-eye"></i>
+                        Преглед</a></td>
+            </tr>
+
+            {{/each}}
+
+        </tbody>
+
+    </table>
+    <a href="/admin/create-post"><button class="btn btn-info"><i class="fas fa-plus"></i> Добавяне на
+            статия</button></a>
+</div>
